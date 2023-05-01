@@ -1,0 +1,324 @@
+/*헤더*/
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+#header h1{
+    width: 150px;
+}
+#header h1 img{
+    width: 100%;
+}
+.header-info{
+    width: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    transition-duration: 0.2s;
+}
+.header-info svg{
+    transition-duration: 0.2s;
+}
+.header-info svg:hover{
+    fill: #F15A22;
+}
+
+/* 헤더 햄버거메뉴 */
+.menu{
+    display: block;
+}
+input[id="menu"]{
+    display: none;
+}
+input[id="menu"] + label {
+    position: relative;
+    display: block;
+    z-index: 5;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+}
+input[id="menu"] + label span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 30px;
+    background: #444;
+    transition: 0.2s;
+    z-index: 7;
+}
+input[id="menu"] + label span:nth-child(1) {
+    top: 0;
+}
+input[id="menu"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+input[id="menu"] + label span:nth-child(3) {
+    bottom: 0;
+}
+/* 클릭 시 */
+input[id="menu"]:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+input[id="menu"]:checked + label span:nth-child(2) {
+    opacity: 0;
+}
+input[id="menu"]:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+.menu1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transition-duration: 0.5s;
+    height: 1500px;
+    width: 0;
+    opacity: 0;
+    background-color: #F15A22;
+    padding-top: 100px;
+}
+input[id="menu"]:checked~.menu1{
+    width: 100%;
+    opacity: 1;
+}
+input[id="menu"]:hover+label>span{
+    background: #F15A22;
+}
+input[id="menu"]:checked+label>span{
+    background: #FFF;
+}
+.menu1>div{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.nav1{
+    width: 45%;
+    height: 200px;
+    margin-bottom: 150px;
+}
+.nav1 h2{
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    transition-duration: 0.2s;
+}
+.nav1 h4{
+    font-size: 16px;
+    color: white;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    margin-left: 4px;
+}
+.nav1>ul>div{
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #FFF;
+}
+.nav1 li{
+    margin-bottom: 6px;
+}
+.nav1 a{
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: -1px;
+    transition-duration: 0.2s;
+}
+
+/* 검색바 */
+input[id="search-popup"]{
+    display: none;
+}
+input[id="search-popup"] + label{
+    position: relative;
+    display: block;
+    z-index: 1;
+    cursor: pointer;
+}
+.search-popup{
+    position: absolute;
+    top: 20px;
+    right: 170px;
+    height: 60px;
+    width: 0;
+    opacity: 0;
+    z-index: 6;
+    background-color: white;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+input[id="search-popup"]:checked~.search-popup{
+    opacity: 1;
+    width: 360px;
+}
+input[id="search-popup"]~.search-popup input{
+    display: none;
+}
+input[id="search-popup"]:checked~.search-popup input{
+    display: block;
+}
+.search-popup input{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+}
+.search-popup button{
+    background-color: #F15A22;
+    color: white;
+    font-size: 14px;
+    width: 90px;
+    height: 30px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+.search-popup button:hover{
+    opacity: 0.8;
+}
+
+/* 내비게이션 바 */
+.pc-nav>ul{
+    width: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    transition-duration: 0.2s;
+}
+.pc-nav a{
+    font-size: 20px;
+    font-weight: 500;
+    color: #444;
+    transition-duration: 0.2s;
+}
+.pc-nav a:hover{
+    color: rgb(241,90,34);
+}
+
+/*풋터*/
+.footer{
+    height: 200px;
+    background-color: #434343;
+}
+.footer>div{
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer ul{
+    color: white;
+    font-size: 16px;
+}
+.footer a{
+    color: #cccccc;
+    font-size: 14px;
+    transition-duration: 0.2s;
+}
+.footer a:hover{
+    color: #F15A22;
+}
+.footer li:first-of-type{
+    margin-top: 10px;
+}
+.cell-logo{
+    width: 100px;
+    height: 36px;
+    color: white;
+    font-size: 12px;
+    border: 1px solid white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding-right: 6px;
+}
+.cell-logo:last-of-type{
+    margin-top: 10px;
+    padding-right: 2px;
+}
+.cell-logo>svg{
+    margin-right: 6px;
+}
+.footer-select select{
+    display: block;
+    width: 130px;
+    height: 50px;
+}
+.f-select{
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.f-select:first-of-type{
+    margin-bottom: 10px;
+}
+.f-select select{
+    background-color: transparent;
+    color: white;
+    margin: 0 auto;
+}
+.toggle{
+    display: none;
+}
+
+/*노트북 미디어쿼리*/
+@media screen and (max-width:1400px){
+    .pc-nav>ul{
+        width: 500px;
+    }
+    .header-info{
+        width: 150px;
+    }
+    .footer>div{
+        max-width: 1000px;
+    }
+}
